@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vaadin Elementary School</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    }
+  </style>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="bower_components/vaadin-grid/vaadin-grid.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+</head>
+
+<body>
+  <template is="dom-bind" id="app">
+    <h1>Vaadin Elementary School Signups</h1>
+
+    <div class="layout horizontal justified">
+      <paper-input value="{{newSignup.first}}" label="First"></paper-input>
+      <paper-input value="{{newSignup.last}}" label="Last"></paper-input>
+      <paper-input value="{{newSignup.email}}" label="Email"></paper-input>
+      <paper-input value="{{newSignup.phone}}" label="Phone"></paper-input>
+      <paper-button raised on-tap="signUp" class="self-center">Sign up</paper-button>
+    </div>
+    <vaadin-grid>
+      <table>
+        <colgroup>
+          <col name="first" />
+          <col name="last" />
+          <col name="email" />
+          <col name="phone" />
+        </colgroup>
+      </table>
+    </vaadin-grid>
+  </template>
+  <script type="text/javascript">
+    var signups = [{
+      first: 'Marcus',
+      last: 'Hellberg',
+      email: 'marcus@email.com',
+      phone: '123-123-1234'
+    }, {
+      first: 'Joonas',
+      last: 'Lehtinen',
+      email: 'joonas@email.com',
+      phone: '321-321-4321'
+    }];
+
+    window.addEventListener('WebComponentsReady', function() {
+      var grid = document.querySelector('vaadin-grid');
+      grid.items = signups;
+
+      var app = document.querySelector('#app');
+      app.newSignup = {};
+
+      app.signUp = function() {
+        signups.push(app.newSignup);
+        grid.size = signups.length;
+        app.newSignup = {};
+      };
+    });
+  </script>
+</body>
+
+</html>
