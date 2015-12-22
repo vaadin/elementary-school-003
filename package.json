@@ -1,5 +1,5 @@
 {
-  "name": "datasources",
+  "name": "vaadin-elementary-school-003",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache 2",
   "devDependencies": {
     "browser-sync": "^2.10.0",
     "gulp": "^3.9.0",
