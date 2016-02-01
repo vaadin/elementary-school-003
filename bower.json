@@ -16,5 +16,9 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "paper-input": "PolymerElements/paper-input#^1.1.5",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.2.2",
+    "vaadin-grid": "^1.0.0"
+  }
 }
